@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\DataWasReceived;
 use App\Models\sensores;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,8 @@ class SensoresController extends Controller
     public function store(Request $request)
     {
         $sensores = sensores::create($request->all());
+        event(new \App\Events\DataWasReceived($sensores));
+       // event(new DataWasReceived()); //el evento esta en pasado diciendo que ya sucedio
     }
 
     /**

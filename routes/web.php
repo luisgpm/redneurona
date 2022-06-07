@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\DataWasReceived;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+/*
+Route::get('/t', function () {
+    event(new \App\Events\DataWasReceived());
+    dd('Event Run Successfully.');
+});
+*/
