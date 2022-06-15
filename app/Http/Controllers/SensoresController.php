@@ -15,7 +15,11 @@ class SensoresController extends Controller
      */
     public function index()
     {
-        //
+        $q1 = sensores::all()->pluck('q1');
+        $q2 = sensores::all()->pluck('q2');
+        $q3 = sensores::all()->pluck('q3');
+        $id = sensores::all()->pluck('id');
+        return view('welcome', compact('q1', 'q2', 'q3', 'id'));
     }
 
     /**
@@ -37,6 +41,7 @@ class SensoresController extends Controller
     public function store(Request $request)
     {
         $sensores = sensores::create($request->all());
+
         event(new \App\Events\DataWasReceived($sensores));
        // event(new DataWasReceived()); //el evento esta en pasado diciendo que ya sucedio
     }

@@ -11,4 +11,5 @@ class sensores extends Model
     protected $fillable = ['q1', 'q2', 'q3'];
 
 
+
 }
